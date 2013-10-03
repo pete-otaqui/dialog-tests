@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Dialog Element Tab Tests</title>
+
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/css/bootstrap.min.css" />
+        
+        <style type="text/css">
+            @media (min-width: 768px) {
+                .test-row {
+                    clear: both;
+                }
+                .test {
+                    width: 49%;
+                    margin-left: 2%;
+                    float: left;
+                }
+                .test:first-child {
+                    margin-left: 0%;
+                }
+            }
+            .test-row {
+                border-top: 1px solid #e5e5e5;
+            }
+            .test {
+                margin-bottom: 30px;
+            }
+            dialog {
+                width: 50%;
+                max-width: 30em;
+            }
+
+            footer {
+                padding-top: 40px;
+                padding-bottom: 30px;
+                margin-top: 100px;
+                color: #777;
+                text-align: center;
+                border-top: 1px solid #e5e5e5;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="jumbotron">
+
+                <h1>Dialog Element Tab Tests</h1>
+
+            </div>
+
+            <div class="contents">
+                <div id="polyfill-error" class="alert alert-danger">
+                    <p>Your browser doesn't seem to support <code>dialog</code> element yet. This demo is running in <a href="https://github.com/GoogleChrome/dialog-polyfill" target="_blank">polyfill</a> mode. If you are seeing this message and using Google Chrome later than 31, turn on &quot;Enable experimental Web Platform features&quot; in chrome://flags.</p>
+                </div>
+
+                
+                <div class="test-row">
+
+                    <section class="test">
+                        <h2>Test A: Well-ordered inputs non-modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-001" class="control-label">Input 001</label>
+                                <input type="text" id="input-001" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-002" class="control-label">Input 002</label>
+                                <input type="text" id="input-002" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-000">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-003" class="control-label">Input 003</label>
+                                    <input type="text" id="input-003" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-004" class="control-label">Input 004</label>
+                                    <input type="text" id="input-004" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-000">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-000">Open Dialog A</button></p>
+
+                    </section>
+
+
+
+                    <section class="test">
+                        <h2>Test B: Badly-ordered inputs in non-modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-051" class="control-label">Input 051</label>
+                                <input type="text" id="input-051" class="form-control" />
+                            </div>
+                            <dialog id="dialog-050">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="input-052" class="control-label">Input 052</label>
+                                        <input type="text" id="input-052" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input-053" class="control-label">Input 053</label>
+                                        <input type="text" id="input-053" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" data-dialog-close="dialog-050">Close</button>
+                                    </div>
+                                </form>
+                            </dialog>
+                            <div class="form-group">
+                                <label for="input-054" class="control-label">Input 054</label>
+                                <input type="text" id="input-054" class="form-control" />
+                            </div>
+                        </form>
+                        <p>The Dialog is just after between the two form elements in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-050">Open Dialog B</button></p>
+
+                    </section>
+                
+                </div>
+
+                
+                <div class="test-row">
+
+                    <section class="test">
+                        <h2>Test C: Well-ordered inputs modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-061" class="control-label">Input 061</label>
+                                <input type="text" id="input-061" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-062" class="control-label">Input 062</label>
+                                <input type="text" id="input-062" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-060" data-dialog-modal="true">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-063" class="control-label">Input 063</label>
+                                    <input type="text" id="input-063" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-064" class="control-label">Input 064</label>
+                                    <input type="text" id="input-064" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-060">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-060">Open Dialog C</button></p>
+
+                    </section>
+
+
+
+                    <section class="test">
+                        <h2>Test D: Badly-ordered inputs in modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-071" class="control-label">Input 071</label>
+                                <input type="text" id="input-071" class="form-control" />
+                            </div>
+                            <dialog id="dialog-070" data-dialog-modal="true">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="input-072" class="control-label">Input 072</label>
+                                        <input type="text" id="input-072" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input-073" class="control-label">Input 073</label>
+                                        <input type="text" id="input-073" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" data-dialog-close="dialog-070">Close</button>
+                                    </div>
+                                </form>
+                            </dialog>
+                            <div class="form-group">
+                                <label for="input-074" class="control-label">Input 074</label>
+                                <input type="text" id="input-074" class="form-control" />
+                            </div>
+                        </form>
+                        <p>The Dialog is just after between the two form elements in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-070">Open Dialog D</button></p>
+
+                    </section>
+                
+                </div>
+
+                
+                <div class="test-row">
+
+                    <section class="test">
+                        <h2>Test E: Well-ordered tabindex in non-modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-101" class="control-label">Input 101</label>
+                                <input tabindex="101" type="text" id="input-101" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-102" class="control-label">Input 102</label>
+                                <input tabindex="102" type="text" id="input-102" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-100">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-103" class="control-label">Input 103</label>
+                                    <input tabindex="103" type="text" id="input-103" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-104" class="control-label">Input 104</label>
+                                    <input tabindex="104" type="text" id="input-104" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-100">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-100">Open Dialog 1</button></p>
+
+                    </section>
+
+
+
+                    <section class="test">
+                        <h2>Test F: Badly-ordered tabindex in non-modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-201" class="control-label">Input 201</label>
+                                <input tabindex="201" type="text" id="input-201" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-204" class="control-label">Input 204</label>
+                                <input tabindex="204" type="text" id="input-204" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-200">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-203" class="control-label">Input 203</label>
+                                    <input tabindex="203" type="text" id="input-203" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-202" class="control-label">Input 202</label>
+                                    <input tabindex="202" type="text" id="input-202" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-200">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-200">Open Dialog 2</button></p>
+
+                    </section>
+                
+                </div>
+
+                <div class="test-row">
+
+
+                    <section class="test">
+                        <h2>Test G: Well-ordered tabindex in modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-301" class="control-label">Input 301</label>
+                                <input tabindex="301" type="text" id="input-301" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-302" class="control-label">Input 302</label>
+                                <input tabindex="302" type="text" id="input-302" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-300" data-dialog-modal="true">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-303" class="control-label">Input 303</label>
+                                    <input tabindex="303" type="text" id="input-303" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-304" class="control-label">Input 304</label>
+                                    <input tabindex="304" type="text" id="input-304" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-300">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-300">Open Dialog 3</button></p>
+
+                    </section>
+
+
+
+                    <section class="test">
+                        <h2>Test H: Badly-ordered tabindex in modal dialogs</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="input-401" class="control-label">Input 401</label>
+                                <input tabindex="401" type="text" id="input-401" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="input-404" class="control-label">Input 404</label>
+                                <input tabindex="404" type="text" id="input-404" class="form-control" />
+                            </div>
+                        </form>
+                        <dialog id="dialog-400" data-dialog-modal="true">
+                            <form>
+                                <div class="form-group">
+                                    <label for="input-403" class="control-label">Input 403</label>
+                                    <input tabindex="403" type="text" id="input-403" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-402" class="control-label">Input 402</label>
+                                    <input tabindex="402" type="text" id="input-402" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" data-dialog-close="dialog-400">Close</button>
+                                </div>
+                            </form>
+                        </dialog>
+                        <p>The Dialog is just after this paragraph in the source order.</p>
+                        <p><button type="button" class="btn btn-primary" data-dialog="dialog-400">Open Dialog 4</button></p>
+
+                    </section>
+                
+
+                </div>
+
+
+
+            </div>
+            
+
+        </div>
+
+        <footer>
+            <p>Tests created by <a href="http://otaqui.com" rel="author">Pete Otaqui</a></p>
+        </footer>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        
+        <script>
+        (function() {
+
+            var dialog, dialog_exists, polyfill_error;
+
+            var link, script, head;
+
+            // Detect Dialog:
+            dialog = document.createElement('dialog');
+            dialog_exists = !!dialog.showModal;
+
+            // If we have the native feature, hide the polyfill warning
+            if ( dialog_exists ) {
+                polyfill_error = document.getElementById('polyfill-error');
+                polyfill_error.parentNode.removeChild(polyfill_error);
+            // Else add the polyfill
+            } else {
+                link = document.createElement('link');
+                link.rel = "stylesheet";
+                link.href = "//rawgithub.com/GoogleChrome/dialog-polyfill/master/dialog-polyfill.css";
+
+                var script = document.createElement('script');
+                script.src = "//rawgithub.com/GoogleChrome/dialog-polyfill/master/dialog-polyfill.js";
+
+                var head = document.querySelector('head');
+                head.appendChild(link);
+                head.appendChild(script);
+
+                script.onload = function () {
+                    [].slice.call(document.querySelectorAll(['dialog'])).forEach(function(dialog) {
+                        dialogPolyfill.registerDialog(dialog);
+                    });
+                };
+            }
+
+            // Attach click events for opening the dialogs
+            [].slice.call(document.querySelectorAll('button[data-dialog]')).forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    var dialog_id = e.target.getAttribute('data-dialog'),
+                        dialog;
+                    dialog = document.querySelector('#' + dialog_id);
+                    if ( dialog.getAttribute('data-dialog-modal') ) {
+                        dialog.showModal();
+                    } else {
+                        dialog.show();
+                    }
+                    e.preventDefault();
+                }, false);
+            });
+
+            // Attach click events for closing the dialogs
+            [].slice.call(document.querySelectorAll('button[data-dialog-close]')).forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    var dialog_id = e.target.getAttribute('data-dialog-close'),
+                        dialog;
+                    dialog = document.querySelector('#' + dialog_id);
+                    dialog.close();
+                    e.preventDefault();
+                }, false);
+            });
+        })();
+        </script>
+    </body>
+</html>
